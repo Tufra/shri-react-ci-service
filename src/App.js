@@ -10,6 +10,8 @@ import {Footer} from './components/Footer'
 import {settingsContext} from "./settingsContext";
 import React from "react";
 
+import  './styles/global.scss'
+
 export function App() {
 
     const initContext = React.useContext(settingsContext)

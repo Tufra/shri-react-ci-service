@@ -42,6 +42,20 @@ body {
   height: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
+.content-cont {
+  min-height: calc(100% - 32px - 48px);
+  padding: 0 100px 20px;
+
+  @media (max-width: 500px) {
+    padding: 0 5% 20px;
+    min-height: calc(100% - 68px - 48px);
+  }
+}
+
 .global-action-button {
   font-style: normal;
   font-weight: normal;
@@ -61,4 +75,24 @@ body {
     @include button-focus($color-border-action-focused);
   }
 
+}
+
+.global-control-button {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 36px;
+  background: $color-bg-control;
+  color: $color-text;
+  border-radius: 4px;
+  padding: 0 20px;
+  cursor: pointer;
+
+  &:hover {
+    @include button-hovered($color-bg-control-hovered)
+  }
+
+  &:focus {
+    @include button-focus($color-border-control-focused)
+  }
 }

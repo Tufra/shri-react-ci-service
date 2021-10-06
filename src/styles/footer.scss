@@ -1,13 +1,50 @@
 $color-background: #F0F2F3;
+$color-link-hover: #E00000;
+$color-link: #7F8285;
 
 .footer-cont {
   height: 32px;
+
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
+
   background: $color-background;
+
+  padding: 0 100px;
+
+  @media (max-width: 500px) {
+    padding: 0 5%;
+  }
+
+  a {
+    margin-right: 12px;
+    text-outline: none;
+    text-decoration: none;
+    color: $color-link;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.06px;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
 
   .footer-lonely-text {
     margin-left: auto;
+    color: $color-link;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.06px;
+  }
+
+  @media (max-width: 430px) {
+    height: 68px;
+
+    .footer-lonely-text {
+      margin-left: 0;
+    }
   }
 }

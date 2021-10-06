@@ -1,0 +1,74 @@
+$color-label-required: #FF3333;
+
+$color-input-border: #D9D9D9;
+$color-input-border-focused: #B3B3B3;
+
+$color-input-bg: #FFF;
+
+@mixin input-field() {
+  border: 2px solid $color-input-border;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 10px 13px;
+}
+
+.input-cont {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+  position: relative;
+
+  .input-required-mark {
+    color: $color-label-required;
+  }
+
+  label {
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.06px;
+  }
+
+  input {
+    max-width: 474px;
+    width: 100%;
+    background: $color-input-bg;
+    margin-top: 6px;
+
+    @include input-field;
+
+    &:focus {
+      border: 2px solid $color-input-border-focused;
+    }
+
+    &::placeholder {
+      opacity: 0.2;
+    }
+  }
+
+  .input-clear-button {
+    background: url("../images/clear-input.svg");
+    width: 16px;
+    height: 16px;
+
+    position: absolute;
+    left: min(100% - 30px, 474 - 30px);
+    top: 50%;
+    transform: translateY(-50%);
+
+
+
+  }
+}
+
+.time-input-cont {
+  margin-bottom: 24px;
+
+  .time-input {
+    @include input-field;
+
+    width: 52px;
+    height: 36px;
+    text-align: right;
+  }
+}
+

@@ -1,12 +1,14 @@
-import * as startup from '../styles/startup.scss'
-import * as globalStyle from '../styles/global.scss'
+import '../styles/startup.scss'
+
 import img from '../images/startup.png'
 import {Link} from "react-router-dom";
+import {Header} from "./Header";
 
 export function Startup() {
 
     return (
         <>
+            <Header showButton/>
             <div className={"startup-centered-cont"}>
                 <img src={img} alt="" className={"startup-img"}/>
                 <p className={"startup-message"}>

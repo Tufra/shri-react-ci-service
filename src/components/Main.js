@@ -2,6 +2,7 @@ import {settingsContext} from "../settingsContext";
 import React from "react";
 import {CommitHistory} from "./CommitHistory";
 import {Startup} from "./Startup";
+import {Footer} from "./Footer";
 
 
 export function Main(props) {
