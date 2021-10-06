@@ -1,5 +1,6 @@
 import '../styles/header.scss'
-import icon from '../images/cog 1.png'
+import settingsIcon from '../images/set-icon.png'
+import runIcon from '../images/run-icon.png'
 import {Link} from "react-router-dom";
 
 export function Header(props) {
@@ -7,14 +8,24 @@ export function Header(props) {
     return (
         <div className={"header-cont"}>
             <a href="">
-                <h1>School CI server</h1>
+                <h1 className={props.headerType}>{props.headerText || 'School CI server'}</h1>
             </a>
             <div className={"header-button-cont"}>
-                {props.showButton ?
+                {props.showRunButton ?
+                    <button className={"global-control-button header-button "}>
+                        <img src={runIcon} alt=""/>
+                        <span className={"header-optional-text"}>Run build</span>
+                    </button> :
+                    null
+                }
+                {props.showSettingsButton ?
                     <Link to={'/settings'}>
-                        <button className={"global-control-button header-settings-button "}>
-                            <img src={icon} alt=""/>
-                            <span className={"header-optional-text"}>Settings</span>
+                        <button className={"global-control-button header-button " + props.settingsButtonType}>
+                            <img src={settingsIcon} alt=""/>
+                            {props.settingsButtonType !== "smolbutn" ?
+                                <span className={"header-optional-text"}>Settings</span> :
+                                null
+                            }
                         </button>
                     </Link> :
                     null

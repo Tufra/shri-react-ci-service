@@ -7,28 +7,29 @@ import {
 import {Settings} from "./components/Settings";
 import {Main} from "./components/Main";
 import {Footer} from './components/Footer'
-import {settingsContext} from "./settingsContext";
+import {settingsContext} from "./contexts/settingsContext";
+import {commitsContext} from "./contexts/commitsContext";
 import React from "react";
 
 import  './styles/global.scss'
 
 export function App() {
 
-    const initContext = React.useContext(settingsContext)
-
     return (
-        <settingsContext.Provider value={initContext}>
-            <Router>
-                <Switch>
-                    <Route path={'/settings'}>
-                        <Settings />
-                    </Route>
-                    <Route path={'/'}>
-                        <Main />
-                    </Route>
-                </Switch>
-                <Footer />
-            </Router>
+        <settingsContext.Provider>
+            <commitsContext.Provider>
+                <Router>
+                    <Switch>
+                        <Route path={'/settings'}>
+                            <Settings />
+                        </Route>
+                        <Route path={'/'}>
+                            <Main />
+                        </Route>
+                    </Switch>
+                    <Footer />
+                </Router>
+            </commitsContext.Provider>
         </settingsContext.Provider>
 
     )

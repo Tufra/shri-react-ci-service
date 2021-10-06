@@ -8,7 +8,11 @@ export function Startup() {
 
     return (
         <>
-            <Header showButton/>
+            <Header headerType={"grey"}
+                    showSettingsButton={true}
+                    settingsButtonType={"normbutn"}
+                    showRunButton={false}
+            />
             <div className={"startup-centered-cont"}>
                 <img src={img} alt="" className={"startup-img"}/>
                 <p className={"startup-message"}>

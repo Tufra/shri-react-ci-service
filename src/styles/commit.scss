@@ -1,0 +1,17 @@
+
+.commit-cont {
+  padding: 12px 24px 12px 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  .major-cont {
+
+  }
+  .minor-cont {
+    margin-left: auto;
+
+    display: flex;
+    flex-direction: column;
+  }
+}

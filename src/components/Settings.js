@@ -1,5 +1,5 @@
 import React from "react";
-import {settingsContext} from "../settingsContext";
+import {settingsContext} from "../contexts/settingsContext";
 import {useHistory} from "react-router-dom";
 import {Header} from "./Header";
 import {Input} from "./form/Input";
@@ -38,20 +38,24 @@ export function Settings() {
     }
 
     function goBack(dest) {
+        settings.setSettings(null)
         history.push('/')
     }
 
     return (
         <>
-            <Header showButton={false} />
+            <Header headerType={"grey"}
+                    showSettingsButton={false}
+                    settingsButtonType={"smolbutn"}
+                    showRunButton={false} />
             <div className={"content-cont"}>
                 <p className={'settings-header'}>Settings</p>
                 <p className={'settings-desc'}>Configure repository connection and synchronization settings.</p>
                 <form action="" onSubmit={saveSettings}>
-                    <Input inputName={'GitHub repository'} value={settings.settings.repoName} required placeholder={'user-name/repo-name'}/>
-                    <Input inputName={'Build command'} value={settings.settings.buildCommand} required placeholder={'npm ci && npm run build'}/>
-                    <Input inputName={'Main branch'} value={settings.settings.branch} placeholder={'master |'}/>
-                    <TimeInput inputName={'Time'} value={settings.settings.time}/>
+                    <Input inputName={'GitHub repository'} value={settings.settings?.repoName} required placeholder={'user-name/repo-name'}/>
+                    <Input inputName={'Build command'} value={settings.settings?.buildCommand} required placeholder={'npm ci && npm run build'}/>
+                    <Input inputName={'Main branch'} value={settings.settings?.branch} placeholder={'master |'}/>
+                    <TimeInput inputName={'Time'} value={settings.settings?.time}/>
                     <div className={"settings-button-cont"}>
                         <input type="submit" className={"global-action-button"} value={'Save'}/>
                         <input type="button"
