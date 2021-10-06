@@ -1,0 +1,64 @@
+@import url("https://yastatic.net/s3/frontend/yandex-font/v0.0.2/browser.css");
+
+@font-face{font-family:'YS Text';font-weight:400;font-style:normal;font-stretch:normal;src:url(//yastatic.net/s3/home/fonts/ys/1/text-regular.woff2) format('woff2'),url(//yastatic.net/s3/home/fonts/ys/1/text-regular.woff) format('woff')}@font-face{font-family:'YS Text';font-weight:500;font-style:normal;font-stretch:normal;src:url(//yastatic.net/s3/home/fonts/ys/1/text-medium.woff2) format('woff2'),url(//yastatic.net/s3/home/fonts/ys/1/text-medium.woff) format('woff')}@font-face{font-family:'YS Text';font-weight:700;font-style:normal;font-stretch:normal;src:url(//yastatic.net/s3/home/fonts/ys/1/text-bold.woff2) format('woff2'),url(//yastatic.net/s3/home/fonts/ys/1/text-bold.woff) format('woff')}.font_loaded body{font-family:'YS Text','Helvetica Neue',Arial,sans-serif;-webkit-font-feature-settings:'liga','kern';-moz-font-feature-settings:'liga','kern';font-feature-settings:'liga','kern'}
+
+$color-bg-action: #FFCC00;
+$color-bg-control: #E6E6E6;
+$color-bg-action-hovered: #F2C200;
+$color-bg-control-hovered: #DBDBDB;
+$color-bg-disabled: #F2F2F2;
+
+$color-border-control-focused: #E6E6E6;
+$color-border: #B38F00;
+$color-border-action-focused: #B38F00;
+
+$color-text: #000;
+
+@mixin button-hovered($arg-color) {
+  background: $arg-color;
+}
+
+@mixin button-focus($arg-color) {
+  border: 2px solid $arg-color;
+}
+
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: 'YS Text';
+}
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.global-action-button {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 36px;
+  background: $color-bg-action;
+  color: $color-text;
+  border-radius: 4px;
+  padding: 0 20px;
+  cursor: pointer;
+
+  &:hover {
+
+    @include button-hovered($color-bg-action-hovered)
+  }
+  &:focus {
+    @include button-focus($color-border-action-focused);
+  }
+
+}

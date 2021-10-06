@@ -1,0 +1,13 @@
+$color-background: #F0F2F3;
+
+.footer-cont {
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: $color-background;
+
+  .footer-lonely-text {
+    margin-left: auto;
+  }
+}
