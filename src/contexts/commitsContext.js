@@ -5,7 +5,7 @@ export const commitsContext = React.createContext({
     commits: [
         {
             number: 1337,
-            
+
         }
     ],
     pushCommit (commitInfo) {
