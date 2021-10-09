@@ -1,22 +1,25 @@
 
-const SET_SETTINGS = 'settings/set_settings'
-const PUSH_COMMIT = 'commits/push_commit'
-
 export function reducer(state, action) {
+    console.log(action.type)
+    console.log('settings/set_settings')
     switch (action.type) {
-        case SET_SETTINGS: {
+        case 'settings/set_settings': {
             localStorage.setItem('ci-settings', JSON.stringify(action.payload))
             console.log('set: ' + action.payload)
             return {
-                commits: state.commits,
+                commits: [],
                 settings: action.payload
             }
         }
-        case PUSH_COMMIT:{
-            console.log('pushed: ' + action.payload)
+        case 'commits/push_commit': {
+            console.log('pushed: ')
+            let commitsCopy = state.commits
+            commitsCopy.unshift(action.payload)
+            localStorage.setItem('ci-commits', JSON.stringify(commitsCopy))
             return {
+                lastNum: state.lastNum + 1,
                 settings: state.settings,
-                commits: state.commits.unshift(action.payload)
+                commits: commitsCopy
             }
         }
         default: return state

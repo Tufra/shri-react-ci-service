@@ -2,9 +2,12 @@ import {Input} from "./form/Input";
 import '../styles/modal.scss'
 import {settingsContext} from "../contexts/settingsContext";
 import React from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 export function Modal(props) {
-    const settings = React.useContext(settingsContext)
+    const settings = useSelector(state => state.settings)
+    const lastNum = useSelector(state => state.lastNum)
+    const dispatch = useDispatch()
 
     /**
      * Создает объект коммита, генерит статус и вставляет в контекст
@@ -34,9 +37,9 @@ export function Modal(props) {
          *  дату генерим на основе сейчас
          */
         const commitInfo = {
-            number: props.commitsContext.lastNum,
+            number: lastNum,
             status: status,
-            branch: settings.settings.branch,
+            branch: settings.branch,
             author: "abobus",
             hash: hash,
             date: now.toLocaleDateString("ru-RU", {
@@ -51,7 +54,10 @@ export function Modal(props) {
             })
         }
 
-        props.commitsContext.pushCommit(commitInfo)
+        dispatch({
+            type: 'commits/push_commit',
+            payload: commitInfo
+        })
         props.toggleModal()
     }
 

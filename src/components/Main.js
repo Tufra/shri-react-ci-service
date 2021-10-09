@@ -7,7 +7,8 @@ import {useSelector} from "react-redux";
 
 export function Main(props) {
     const settings = useSelector(state => state.settings)
-
+    console.log('set: ')
+    console.log(settings)
     let content
 
     /**

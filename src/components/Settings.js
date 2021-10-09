@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 
 export function Settings() {
-    const settings = useSelector((state) => state)
+    const settings = useSelector((state) => state.settings)
     const dispatch = useDispatch()
 
     const [status, setStatus] = React.useState("")
@@ -43,9 +43,10 @@ export function Settings() {
                 console.log(obj)
 
                 dispatch({
-                    type: 'settings/set-settings',
+                    type: 'settings/set_settings',
                     payload: obj
                 })
+                localStorage.removeItem('ci-commits')
                 setStatus('OK')
                 //history.push('/')
                 console.log(settings)

@@ -11,11 +11,10 @@ import {useSelector} from "react-redux";
 export function CommitHistory(props) {
     const commits = useSelector(state => state.commits)
     const settings = useSelector(state => state.settings)
-    console.log(commits)
-    console.log(settings)
     const [hidden, setHidden] = React.useState(true)
 
-
+    console.log(commits)
+    console.log(settings)
     /**
      *  Показывает/прячет модалку
      */
@@ -25,8 +24,8 @@ export function CommitHistory(props) {
 
     return (
         <>
-            <Modal isHidden={hidden} toggleModal={toggleModal} commitsContext={commits}/>
-            <Header headerText={settings.settings?.repoName}
+            <Modal isHidden={hidden} toggleModal={toggleModal}/>
+            <Header headerText={settings.repoName}
                     headerType={"black"}
                     showSettingsButton={true}
                     settingsButtonType={"smolbutn"}
