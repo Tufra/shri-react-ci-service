@@ -5,11 +5,14 @@ import {settingsContext} from "../contexts/settingsContext";
 import {commitsContext} from "../contexts/commitsContext";
 import '../styles/commithistory.scss'
 import {Modal} from "./Modal";
+import {useSelector} from "react-redux";
 
 
 export function CommitHistory(props) {
-    const settings = React.useContext(settingsContext)
-    const commits = React.useContext(commitsContext)
+    const commits = useSelector(state => state.commits)
+    const settings = useSelector(state => state.settings)
+    console.log(commits)
+    console.log(settings)
     const [hidden, setHidden] = React.useState(true)
 
 
@@ -32,11 +35,11 @@ export function CommitHistory(props) {
             />
             <div className={'content-cont commit-history-cont'}>
                 {
-                    commits.commits.map((info) => {
+                    commits.map((info) => {
                         return <Commit commitInfo={info} key={info.hash} />
                     })
                 }
-                {commits.commits.length > 5 ?
+                {commits.length > 5 ?
                     <input type="button" value={"Show more"}
                            className={"global-control-button"}
                            style={{"align-self": "flex-start"}}

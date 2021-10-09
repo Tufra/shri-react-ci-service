@@ -2,17 +2,18 @@ import {settingsContext} from "../contexts/settingsContext";
 import React from "react";
 import {CommitHistory} from "./CommitHistory";
 import {Startup} from "./Startup";
+import {useSelector} from "react-redux";
 
 
 export function Main(props) {
-    const areSettingsSet = React.useContext(settingsContext)?.areSet
+    const settings = useSelector(state => state.settings)
 
     let content
 
     /**
      *  рендерим в зависимости от наличия настроек в контексте
      */
-    if (areSettingsSet) {
+    if (settings.hasOwnProperty("repoName")) {
         content = <CommitHistory />
     } else {
         content = <Startup />

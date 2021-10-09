@@ -1,19 +1,20 @@
 import React from "react";
-import {settingsContext} from "../contexts/settingsContext";
 import {useHistory} from "react-router-dom";
 import {Header} from "./Header";
 import {Input} from "./form/Input";
 import '../styles/settings.scss'
 import {TimeInput} from "./form/TimeInput";
-
+import {useDispatch, useSelector} from "react-redux";
 
 
 export function Settings() {
-    const settings = React.useContext(settingsContext)
+    const settings = useSelector((state) => state)
+    const dispatch = useDispatch()
+
     const [status, setStatus] = React.useState("")
     const history = useHistory()
 
-    console.log(settings.settings)
+    console.log(settings)
 
     async function saveSettings(event) {
         event.preventDefault()
@@ -41,9 +42,13 @@ export function Settings() {
                 }
                 console.log(obj)
 
-                settings.setSettings(obj)
-
-                history.push('/')
+                dispatch({
+                    type: 'settings/set-settings',
+                    payload: obj
+                })
+                setStatus('OK')
+                //history.push('/')
+                console.log(settings)
             },
             () => {
                 setStatus('GitHub repository name error')
@@ -68,19 +73,19 @@ export function Settings() {
                 <p className={'settings-desc'}>Configure repository connection and synchronization settings.</p>
                 <form action="" onSubmit={saveSettings}>
                     <Input inputName={'GitHub repository'}
-                           value={settings.settings?.repoName}
+                           value={settings.repoName}
                            required placeholder={'user-name/repo-name'}
                     />
                     <Input inputName={'Build command'}
-                           value={settings.settings?.buildCommand}
+                           value={settings.buildCommand}
                            required placeholder={'npm ci && npm run build'}
                     />
                     <Input inputName={'Main branch'}
-                           value={settings.settings?.branch}
+                           value={settings.branch}
                            placeholder={'master |'}
                     />
                     <TimeInput inputName={'Time'}
-                               value={settings.settings?.time}
+                               value={settings.time}
                     />
                     <p className={"settings-status"}>{status}</p>
                     <div className={"settings-button-cont"}>

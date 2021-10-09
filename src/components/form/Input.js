@@ -1,6 +1,6 @@
 import React from "react";
 import '../../styles/input.scss'
-import clearIcon from '../../images/clear-input.svg'
+const clearIcon = new URL('../../images/clear-input.svg', import.meta.url)
 
 
 export function Input(props) {
