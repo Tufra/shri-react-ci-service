@@ -10,8 +10,8 @@ console.log(info)
 console.log(!!info)
 
 export const settingsContext = React.createContext({
-    areSet: !!(info.areSet),
-    settings: info.settings,
+    areSet: info? info.areSet : false,
+    settings: info? info.settings: {},
     setSettings (newSets) {
         console.log(newSets)
         console.log(!newSets)

@@ -15,9 +15,12 @@ import  './styles/global.scss'
 
 export function App() {
 
+    const settings = React.useContext(settingsContext)
+    const commits = React.useContext(commitsContext)
+
     return (
-        <settingsContext.Provider>
-            <commitsContext.Provider>
+        <settingsContext.Provider value={settings}>
+            <commitsContext.Provider value={commits}>
                 <Router>
                     <Switch>
                         <Route path={'/settings'}>

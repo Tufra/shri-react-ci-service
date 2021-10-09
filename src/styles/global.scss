@@ -8,7 +8,7 @@ $color-bg-action-hovered: #F2C200;
 $color-bg-control-hovered: #DBDBDB;
 $color-bg-disabled: #F2F2F2;
 
-$color-border-control-focused: #E6E6E6;
+$color-border-control-focused: #B3B3B3;
 $color-border: #B38F00;
 $color-border-action-focused: #B38F00;
 
@@ -16,6 +16,7 @@ $color-text: #000;
 
 @mixin button-hovered($arg-color) {
   background: $arg-color;
+  border: 2px solid $arg-color;
 }
 
 @mixin button-focus($arg-color) {
@@ -62,6 +63,7 @@ a {
   font-size: 13px;
   line-height: 36px;
   background: $color-bg-action;
+  border: 2px solid $color-bg-action;
   color: $color-text;
   border-radius: 4px;
   padding: 0 20px;
@@ -83,9 +85,10 @@ a {
   font-size: 13px;
   line-height: 36px;
   background: $color-bg-control;
+  border: 2px solid $color-bg-control;
   color: $color-text;
   border-radius: 4px;
-  padding: 0 20px;
+  padding: 0 16px;
   cursor: pointer;
 
   &:hover {

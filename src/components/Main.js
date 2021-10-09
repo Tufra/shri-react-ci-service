@@ -7,7 +7,7 @@ import {Footer} from "./Footer";
 
 
 export function Main(props) {
-    const areSettingsSet = React.useContext(settingsContext).areSet
+    const areSettingsSet = React.useContext(settingsContext)?.areSet
 
     let content
 
@@ -18,8 +18,8 @@ export function Main(props) {
     }
 
     return (
-        <CommitCo>
+        <>
             { content }
-        </CommitCo>
+        </>
     )
 }
