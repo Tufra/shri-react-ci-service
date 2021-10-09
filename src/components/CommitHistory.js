@@ -11,13 +11,6 @@ export function CommitHistory(props) {
     const settings = React.useContext(settingsContext)
     const commits = React.useContext(commitsContext)
     const [hidden, setHidden] = React.useState(true)
-    console.log(commits)
-
-    const commitList = commits.commits.map((info) => {
-        console.log(info)
-        return <Commit commitInfo={info} key={info.hash} />
-    })
-    ReactDOM.
 
     function toggleModal() {
         setHidden(!hidden)
@@ -34,7 +27,18 @@ export function CommitHistory(props) {
                     toggleModal={toggleModal}
             />
             <div className={'content-cont commit-history-cont'}>
-                {commitList}
+                {
+                    commits.commits.map((info) => {
+                        return <Commit commitInfo={info} key={info.hash} />
+                    })
+                }
+                {commits.commits.length > 5 ?
+                    <input type="button" value={"Show more"}
+                           className={"global-control-button"}
+                           style={{"align-self": "flex-start"}}
+                    /> :
+                    null
+                }
             </div>
         </>
     )

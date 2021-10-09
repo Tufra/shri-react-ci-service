@@ -6,16 +6,11 @@ try {
 } catch (e) {
     info = {}
 }
-console.log(info)
-console.log(!!info)
 
 export const settingsContext = React.createContext({
     areSet: info? info.areSet : false,
     settings: info? info.settings: {},
     setSettings (newSets) {
-        console.log(newSets)
-        console.log(!newSets)
-        console.log(!!newSets)
         this.settings = newSets
         this.areSet = !!newSets
         try {

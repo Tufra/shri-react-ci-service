@@ -2,9 +2,6 @@ import {Input} from "./form/Input";
 import '../styles/modal.scss'
 import {settingsContext} from "../contexts/settingsContext";
 import React from "react";
-import {Main} from "./Main";
-import {commitsContext} from "../contexts/commitsContext";
-
 
 export function Modal(props) {
     const settings = React.useContext(settingsContext)
@@ -14,9 +11,18 @@ export function Modal(props) {
         const form = event.target
         const hash = form[0].value
         const now = new Date()
+
+        const rand = Math.random()
+        let status = "pending"
+        if (rand > 0.66) {
+            status = "ok"
+        } else if (rand > 0.33) {
+            status = "err"
+        }
+
         const commitInfo = {
             number: props.commitsContext.lastNum,
-            status: "pending",
+            status: status,
             branch: settings.settings.branch,
             author: "abobus",
             hash: hash,
@@ -29,17 +35,9 @@ export function Modal(props) {
             time: now.toLocaleTimeString("ru-RU", {
                 hour: "numeric",
                 minute: "numeric"
-            }),
-            mock: setTimeout(() => {
-                if (Math.random() > 0.6) {
-                    this.status = "ok"
-                } else {
-                    this.status = "err"
-                }
-                console.log(props.commitsContext.commits)
-                clearTimeout(this.mock)
-            }, 1000)
+            })
         }
+
         props.commitsContext.pushCommit(commitInfo)
         props.toggleModal()
     }

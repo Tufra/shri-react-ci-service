@@ -17,7 +17,7 @@ export const commitsContext = React.createContext({
         // }
     ],
     pushCommit (commitInfo) {
-        this.lastNum++;
         this.commits.unshift(commitInfo);
+        this.lastNum++;
     }
 })
