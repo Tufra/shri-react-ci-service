@@ -38,7 +38,7 @@ export function Settings() {
     }
 
     function goBack(dest) {
-        settings.setSettings(null)
+        //settings.setSettings(null) //дебаг
         history.push('/')
     }
 

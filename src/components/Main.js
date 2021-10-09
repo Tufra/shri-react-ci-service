@@ -9,6 +9,9 @@ export function Main(props) {
 
     let content
 
+    /**
+     *  рендерим в зависимости от наличия настроек в контексте
+     */
     if (areSettingsSet) {
         content = <CommitHistory />
     } else {

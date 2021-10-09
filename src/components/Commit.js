@@ -1,5 +1,6 @@
 import '../styles/commit.scss'
 
+//некрасивое
 const branchIcon = new URL('../images/branch.svg', import.meta.url);
 const userIcon = new URL('../images/user.svg', import.meta.url);
 const okIcon = new URL('../images/ok.svg', import.meta.url);
@@ -7,6 +8,7 @@ const errIcon = new URL('../images/neok.svg', import.meta.url);
 const pendIcon = new URL('../images/wait.svg', import.meta.url);
 const calIcon = new URL('../images/calendar.svg', import.meta.url);
 const timerIcon = new URL('../images/timer.svg', import.meta.url);
+//некрасивое
 
 export function Commit(props) {
 

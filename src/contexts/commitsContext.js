@@ -16,6 +16,11 @@ export const commitsContext = React.createContext({
         //
         // }
     ],
+    /**
+     * Заталкивает коммит в историю и увеличивает счетчик для числа
+     *
+     * @param {Object} commitInfo
+     */
     pushCommit (commitInfo) {
         this.commits.unshift(commitInfo);
         this.lastNum++;

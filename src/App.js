@@ -15,6 +15,10 @@ import  './styles/global.scss'
 
 export function App() {
 
+    /**
+     * воруем дефолтное значение контекста потому что если провайдер не писать
+     * ошибка вылетит и я не разобрался с ней(
+     */
     const settings = React.useContext(settingsContext)
     const commits = React.useContext(commitsContext)
 

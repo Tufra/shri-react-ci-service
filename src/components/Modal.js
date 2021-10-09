@@ -6,12 +6,21 @@ import React from "react";
 export function Modal(props) {
     const settings = React.useContext(settingsContext)
 
+    /**
+     * Создает объект коммита, генерит статус и вставляет в контекст
+     *
+     * @param event
+     */
     function runBuild(event) {
         event.preventDefault()
         const form = event.target
         const hash = form[0].value
         const now = new Date()
 
+        /**
+         * Рандомизация статуса
+         * @type {number}
+         */
         const rand = Math.random()
         let status = "pending"
         if (rand > 0.66) {
@@ -20,6 +29,10 @@ export function Modal(props) {
             status = "err"
         }
 
+        /**
+         *  Объект коммита
+         *  дату генерим на основе сейчас
+         */
         const commitInfo = {
             number: props.commitsContext.lastNum,
             status: status,

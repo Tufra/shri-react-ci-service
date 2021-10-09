@@ -12,6 +12,10 @@ export function CommitHistory(props) {
     const commits = React.useContext(commitsContext)
     const [hidden, setHidden] = React.useState(true)
 
+
+    /**
+     *  Показывает/прячет модалку
+     */
     function toggleModal() {
         setHidden(!hidden)
     }
