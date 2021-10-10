@@ -48,8 +48,9 @@ export function Settings() {
                 })
                 localStorage.removeItem('ci-commits')
                 setStatus('OK')
-                //history.push('/')
+
                 console.log(settings)
+                history.push('/')
             },
             () => {
                 setStatus('GitHub repository name error')

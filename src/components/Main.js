@@ -1,4 +1,3 @@
-import {settingsContext} from "../contexts/settingsContext";
 import React from "react";
 import {CommitHistory} from "./CommitHistory";
 import {Startup} from "./Startup";

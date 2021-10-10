@@ -1,8 +1,6 @@
 import {Header} from "./Header";
 import {Commit} from './Commit'
 import React from "react"
-import {settingsContext} from "../contexts/settingsContext";
-import {commitsContext} from "../contexts/commitsContext";
 import '../styles/commithistory.scss'
 import {Modal} from "./Modal";
 import {useSelector} from "react-redux";

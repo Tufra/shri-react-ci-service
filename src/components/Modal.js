@@ -1,6 +1,5 @@
 import {Input} from "./form/Input";
 import '../styles/modal.scss'
-import {settingsContext} from "../contexts/settingsContext";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 
