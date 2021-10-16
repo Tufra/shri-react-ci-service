@@ -47,6 +47,9 @@ export function Settings() {
                     payload: obj
                 })
                 localStorage.removeItem('ci-commits')
+                dispatch({
+                    type: 'commits/wipe_commits'
+                })
                 setStatus('OK')
 
                 console.log(settings)

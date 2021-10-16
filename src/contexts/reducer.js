@@ -1,7 +1,6 @@
 
 export function reducer(state, action) {
     console.log(action.type)
-    console.log('settings/set_settings')
     switch (action.type) {
         case 'settings/set_settings': {
             localStorage.setItem('ci-settings', JSON.stringify(action.payload))
@@ -20,6 +19,14 @@ export function reducer(state, action) {
                 lastNum: state.lastNum + 1,
                 settings: state.settings,
                 commits: commitsCopy
+            }
+        }
+        case 'commits/wipe_commits': {
+            console.log('wiped: ')
+            return {
+                lastNum: 0,
+                settings: state.settings,
+                commits: []
             }
         }
         default: return state

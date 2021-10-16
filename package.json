@@ -2,11 +2,10 @@
   "name": "shri-react-ci-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel public/index.html",
-    "start": "parcel public/index.html"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +26,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "babel-cli": "^6.26.0",
+    "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.5",

@@ -31,6 +31,7 @@ export function Modal(props) {
             status = "err"
         }
 
+        console.log(lastNum)
         /**
          *  Объект коммита
          *  дату генерим на основе сейчас
