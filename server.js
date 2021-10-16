@@ -6,7 +6,8 @@ const app = express()
 app.use(express.static(path.resolve(__dirname, 'dist')))
 
 app.get('/', (req, res) => {
-    res.send('aaa')
+    console.log('aaa')
+    res.sendFile('index.html')
 })
 
 app.listen(3000, () => {
