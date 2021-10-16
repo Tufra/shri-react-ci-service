@@ -50,7 +50,7 @@ export function Modal(props) {
                 minute: "numeric"
             })
         }
-
+        console.log('aaa')
         props.commitsContext.pushCommit(commitInfo)
         props.toggleModal()
     }

@@ -8,9 +8,11 @@ export function Header(props) {
     return (
         <div className={"header-cont"}>
 
-            <a href="">
+            <Link to={'/'}>
                 <h1 className={props.headerType}>{props.headerText || 'School CI server'}</h1>
-            </a>
+            </Link>
+
+
             <div className={"header-button-cont"}>
                 {props.showRunButton ?
                     <button className={"global-control-button header-button"} onClick={props.toggleModal}>
