@@ -4,5 +4,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: PATH/release.sh
-      - run: PATH/createImage.sh
+      - run: .github/release.sh
+        shell: bash
+      - run: .github/createImage.sh
+        shell: bash
