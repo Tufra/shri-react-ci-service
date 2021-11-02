@@ -9,7 +9,7 @@ jobs:
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/createImage.sh"
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/putContainerInfo.sh"
       - run: echo ./
-      - run: sh ./.github/release.sh
+      - run: ./.github/release.sh
         shell: bash
-      - run: sh ./.github/createImage.sh
+      - run: ./.github/createImage.sh
         shell: bash
