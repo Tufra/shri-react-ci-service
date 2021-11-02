@@ -1,0 +1,8 @@
+name: release-action
+on: [release]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: release.sh
+      - run: createImage.sh
