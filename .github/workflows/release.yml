@@ -5,10 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/release.sh"
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/createImage.sh"
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/putContainerInfo.sh"
-      - run: "${GITHUB_WORKSPACE}/.github/release.sh"
+      - run: echo ./
+      - run: "/.github/release.sh"
         shell: bash
-      - run: "${GITHUB_WORKSPACE}/.github/createImage.sh"
+      - run: "/.github/createImage.sh"
         shell: bash
