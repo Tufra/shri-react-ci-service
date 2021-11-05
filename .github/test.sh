@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 npm i
-RESULT=$(npm run jest)
+RESULT=$(npm run jest | tr -s "\n" " ")
 
-echo ticket.txt
+#echo ticket.txt
 
 KEY=$1
 

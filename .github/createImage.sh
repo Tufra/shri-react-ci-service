@@ -18,4 +18,4 @@ TASK=$(curl -H "Content-Type: application/json" \
      -d "{\"queue\": \"TMP\",\"summary\": \"Release $TAG\",\"description\": \"$DESC + docker build = ok\"}" )\
      > ticket.txt
 
-./.github/test.sh "$(TASK | jq -r '.id')" "$(TASK | jq -r '.description')"
+./.github/test.sh "$(echo "$TASK" | jq -r '.id')" "$(echo "$TASK" | jq -r '.description')"

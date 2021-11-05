@@ -22,4 +22,4 @@ TASK=$(curl -H "Content-Type: application/json" \
      https://api.tracker.yandex.net/v2/issues/ \
      -d "{\"queue\": \"TMP\",\"summary\": \"Release $TAG\",\"description\": \"${COMMITS}\"}")
 
-./.github/createImage.sh "$(TASK | jq -r '.id')" "$(TASK | jq -r '.description')"
+./.github/createImage.sh "$(echo "$TASK" | jq -r '.id')" "$(echo "$TASK" | jq -r '.description')"
