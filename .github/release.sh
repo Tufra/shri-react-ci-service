@@ -3,6 +3,8 @@
 TAG=$(git tag | sort -V -r | awk 'NR==1')
 PREV_TAG=$(git tag | sort -V -r | awk 'NR==2')
 
+git tag | sort -V -r
+
 echo "$TAG"
 echo "$PREV_TAG"
 COMMITS="$(git log "$PREV_TAG".."$TAG" --oneline --pretty=format:"%h - %s (%an, %ar)" | tr -s "\n" " ")"
