@@ -5,7 +5,7 @@ PREV_TAG=$(git tag | sort -V -r | awk 'NR==2')
 
 echo "$TAG"
 echo "$PREV_TAG"
-COMMITS="$(git log "$TAG".."$PREV_TAG" --oneline --pretty=format:"%h - %s (%an, %ar)")" > ticket.txt
+COMMITS="$(git log "$PREV_TAG".."$TAG" --oneline --pretty=format:"%h - %s (%an, %ar)")"
 
 echo "$COMMITS"
 
