@@ -3,9 +3,11 @@
 npm i
 RESULT=$(npm run jest)
 
-KEY=$(echo ticket.txt | jq -r '.key')
+echo ticket.txt
 
-DESC=$(echo ticket.txt | jq -r '.desc')
+KEY=$1
+
+DESC=$2
 
 curl -H "Content-Type: application/json" \
      -H "Authorization: OAuth AQAAAAAc1G31AAd4vp4Ts7KVD0dTnFyQ5N3VliU" \
@@ -13,4 +15,3 @@ curl -H "Content-Type: application/json" \
      -X POST \
      https://api.tracker.yandex.net/v2/issues/"${KEY}" \
      -d "{\"queue\": \"TMP\",\"summary\": \"Release ${TAG}\",\"description\": \"${DESC}\ + tests: ${RESULT}}" \
-     > ticket.txt

@@ -17,7 +17,3 @@ jobs:
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/test.sh"
       - run: ./.github/release.sh
         shell: bash
-      - run: ./.github/createImage.sh
-        shell: bash
-      - run: ./.github/test.sh
-        shell: bash
