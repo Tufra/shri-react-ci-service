@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-TAG=$(git tag | sort -V -r | awk 'NR==1')
-PREV_TAG=$(git tag | sort -V -r | awk 'NR==2')
+TAG=$(git tag --list | sort -V -r | awk 'NR==1')
+PREV_TAG=$(git tag --list | sort -V -r | awk 'NR==2')
 
-git tag | sort -V -r
+#git tag | sort -V -r
 
 echo "$TAG"
 echo "$PREV_TAG"
@@ -18,9 +18,9 @@ echo "${COMMITS}" > commits.txt
 #     "https://api.tracker.yandex.net/v2/myself"
 #
 #echo aaa
-curl -H "Content-Type: application/json" \
-     -H "Authorization: OAuth AQAAAAAc1G31AAd4vp4Ts7KVD0dTnFyQ5N3VliU" \
-     -H "X-Org-ID: 6461097" \
-     https://api.tracker.yandex.net/v2/issues/ \
-     -d "{\"queue\": \"TMP\",\"summary\": \"Release $TAG\",\"description\": \"${COMMITS}\"}" \
-     > ticket.txt
+#curl -H "Content-Type: application/json" \
+#     -H "Authorization: OAuth AQAAAAAc1G31AAd4vp4Ts7KVD0dTnFyQ5N3VliU" \
+#     -H "X-Org-ID: 6461097" \
+#     https://api.tracker.yandex.net/v2/issues/ \
+#     -d "{\"queue\": \"TMP\",\"summary\": \"Release $TAG\",\"description\": \"${COMMITS}\"}" \
+#     > ticket.txt
