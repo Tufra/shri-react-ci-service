@@ -4,6 +4,9 @@ jobs:
   release-obj:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v2
+        with:
+            node-version: '14'
       - uses: actions/checkout@v2
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/release.sh"
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/createImage.sh"
@@ -12,4 +15,6 @@ jobs:
       - run: ./.github/release.sh
         shell: bash
       - run: ./.github/createImage.sh
+        shell: bash
+      - run: ./.github/test.sh
         shell: bash

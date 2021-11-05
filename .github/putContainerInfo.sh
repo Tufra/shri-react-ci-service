@@ -10,4 +10,3 @@ curl -H "Content-Type: application/json" \
      -X PATCH \
      https://api.tracker.yandex.net/v2/issues/"$KEY" \
      -d "{\"queue\": \"TMP\",\"summary\": \"Release $TAG\",\"description\": \"$DESC\ + docker image tufra/ci-service-$TAG}" \
-     > ticket.txt
