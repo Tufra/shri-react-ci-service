@@ -10,6 +10,8 @@ jobs:
         with:
             node-version: '14'
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/release.sh"
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/createImage.sh"
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/test.sh"
