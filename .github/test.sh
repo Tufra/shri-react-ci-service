@@ -12,4 +12,5 @@ curl -H "Content-Type: application/json" \
      -H "X-Org-ID: 6461097" \
      -X POST \
      https://api.tracker.yandex.net/v2/issues/"${KEY}" \
-     -d "{\"queue\": \"TMP\",\"summary\": \"Release ${TAG}\",\"description\": \"${DESC}\ + tests: ${RESULT}}"
+     -d "{\"queue\": \"TMP\",\"summary\": \"Release ${TAG}\",\"description\": \"${DESC}\ + tests: ${RESULT}}" \
+     > ticket.txt
