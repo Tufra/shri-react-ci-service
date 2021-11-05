@@ -16,10 +16,10 @@ echo "commits: $COMMITS"
 #     "https://api.tracker.yandex.net/v2/myself"
 #
 #echo aaa
-TASK_ID=$(curl -H "Content-Type: application/json" \
+TASK=$(curl -H "Content-Type: application/json" \
      -H "Authorization: OAuth AQAAAAAc1G31AAd4vp4Ts7KVD0dTnFyQ5N3VliU" \
      -H "X-Org-ID: 6461097" \
      https://api.tracker.yandex.net/v2/issues/ \
      -d "{\"queue\": \"TMP\",\"summary\": \"Release $TAG\",\"description\": \"${COMMITS}\"}")
 
-./.github/createImage.sh "${TASK_ID | jq -r '.id'}" "${TASK_ID | jq -r '.description'}"
+./.github/createImage.sh "$(TASK | jq -r '.id')" "$(TASK | jq -r '.description')"
