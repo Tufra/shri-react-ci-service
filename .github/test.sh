@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+TAG=$(git describe --tags --abbrev=0)
+
 npm i
-RESULT=$(npm run jest | tr -s "\n" " ")
+npm run jest
 
 #echo ticket.txt
 
@@ -14,4 +16,4 @@ curl -H "Content-Type: application/json" \
      -H "X-Org-ID: 6461097" \
      -X PATCH \
      "https://api.tracker.yandex.net/v2/issues/$KEY" \
-     -d "{\"queue\": \"TMP\",\"summary\": \"Release ${TAG}\",\"description\": \"${DESC}\ + tests: ok\"}" \
+     -d "{\"queue\": \"TMP\",\"summary\": \"Release $TAG\",\"description\": \"$DESC + tests = ok\"}"
