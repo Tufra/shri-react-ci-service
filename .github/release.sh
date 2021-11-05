@@ -7,7 +7,7 @@ echo "$TAG"
 echo "$PREV_TAG"
 COMMITS="$(git log "$PREV_TAG".."$TAG" --oneline --pretty=format:"%h - %s (%an, %ar)" | tr -s "\n" " ")"
 
-echo "$COMMITS"
+echo "commits: $COMMITS"
 
 echo "${COMMITS}" > commits.txt
 
