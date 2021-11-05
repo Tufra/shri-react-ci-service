@@ -3,15 +3,13 @@
 TAG=$(git tag --list | sort -V -r | awk 'NR==1')
 PREV_TAG=$(git tag --list | sort -V -r | awk 'NR==2')
 
-#git tag | sort -V -r
+echo "commits: $(git tag)"
 
 echo "$TAG"
 echo "$PREV_TAG"
 COMMITS="$(git log "$PREV_TAG".."$TAG" --oneline --pretty=format:"%h - %s (%an, %ar)" | tr -s "\n" " ")"
 
 echo "commits: $COMMITS"
-
-echo "${COMMITS}" > commits.txt
 
 #curl -H "Authorization: OAuth AQAAAAAc1G31AAd4vp4Ts7KVD0dTnFyQ5N3VliU" \
 #     -H "X-Org-ID: 6461097" \
