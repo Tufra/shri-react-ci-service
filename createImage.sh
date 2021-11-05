@@ -6,10 +6,10 @@ echo "$TAG"
 
 docker build . -t tufra/ci-service-"$TAG"
 
-cmd ticket.txt | \
+echo ticket.txt | \
 node -pe "JSON.parse(process.env[1]).key" > "$KEY"
 
-cmd ticket.txt | \
+echo ticket.txt | \
 node -pe "JSON.parse(process.env[1]).description" > "$DESC"
 
 curl -H "Content-Type: application/json" \
