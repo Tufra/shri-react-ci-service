@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tufra/shri-react-ci-service.git"
+    "url": "git+https://github.com/Tufra/shri-react-ci-service.git",
+    "jest": "jest"
   },
   "author": "",
   "license": "ISC",

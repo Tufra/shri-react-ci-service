@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-jest > "$RESULT"
+npm i
+npm run jest > "$RESULT"
 
 echo ticket.txt | \
 node -pe "JSON.parse(process.env[1]).key" > "$KEY"
