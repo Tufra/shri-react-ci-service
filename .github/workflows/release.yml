@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/release.sh"
       - run: chmod +x "${GITHUB_WORKSPACE}/.github/createImage.sh"
-      - run: chmod +x "${GITHUB_WORKSPACE}/.github/putContainerInfo.sh"
+      - run: chmod +x "${GITHUB_WORKSPACE}/.github/test.sh"
       - run: echo ./
       - run: ./.github/release.sh
         shell: bash
