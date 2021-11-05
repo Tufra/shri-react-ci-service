@@ -1,5 +1,7 @@
 name: release-action
-on: [release]
+on:
+  release:
+    types: [published]
 jobs:
   release-obj:
     runs-on: ubuntu-latest
